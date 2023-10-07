@@ -1,7 +1,10 @@
 
 cmake_minimum_required(VERSION 3.27)
-project(console_calculator CXX)
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/**/*.cpp")
-add_executable(console_calculator src/main.cpp ${SOURCES})
-target_compile_features(console_calculator PUBLIC cxx_std_20)
-target_compile_options(console_calculator PUBLIC -Wall -Wextra -pedantic -Werror)
+
+set(project_name console_calculator)
+project(${project_name} CXX)
+
+set(CMAKE_INSTALL_PREFIX "./install" CACHE STRING "install path" FORCE)
+include (${CMAKE_SOURCE_DIR}/cmakes/compile_option.cmake)
+
+add_executable(${project_name} src/main.cpp)

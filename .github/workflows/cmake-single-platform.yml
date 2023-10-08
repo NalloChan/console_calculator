@@ -57,7 +57,7 @@ jobs:
 
         if [[ "${{ matrix.os }}" == "windows-latest" ]]
         then
-          7z a '${{ matrix.artifact_name }}' '${{github.workspace}}/build/test/main }}'
+          7z a '${{ matrix.artifact_name }}' '${{github.workspace}}/build/test/main'
         else
           tar czvf '${{ matrix.artifact_name }}' '${{github.workspace}}/build/test/${{ matrix.exe_name }}'
         fi

@@ -33,7 +33,7 @@ jobs:
           sys.exit(0)
 
         print("cpplint:")
-        subprocess.run(["cpplint", "--filter=-build/explicit_make_pair,-build/header_guard,-build/include_order,-build/include_what_you_use,-build/namespaces_literals,-readability/braces,-readability/casting,-runtime/explicit,-runtime/int,-whitespace/end_of_line,-whitespace/ending_newline,"] + cpp_files, check=True, text=True)
+        subprocess.run(["cpplint", "--filter=-legal/copyright,-build/namespaces_headers,-runtime/indentation_namespace,-whitespace/braces,-whitespace/newline"] + cpp_files, check=True, text=True)
 
         print("g++:")
         subprocess.run(["g++"] + cpp_files, check=True, text=True)

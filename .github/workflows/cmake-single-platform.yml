@@ -45,13 +45,8 @@ jobs:
     - name: Package
       shell: bash
       run: |
-        if [[ "${{ matrix.os }}" == "macos-latest" ]]
-        then
-          ls '${{github.workspace}}/build'
-        elif [[ "${{ matrix.os }}" == "windows-latest" ]]
+        if [[ "${{ matrix.os }}" == "windows-latest" ]]
           ls '${{github.workspace}}/build/test/'
-        else
-          tree '${{github.workspace}}/build'
         fi
 
         if [[ "${{ matrix.os }}" == "windows-latest" ]]

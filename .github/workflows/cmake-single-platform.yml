@@ -45,10 +45,14 @@ jobs:
     - name: Package
       shell: bash
       run: |
-        ls '${{github.workspace}}/build'
+        if [[ "${{ matrix.os }}" == "macos-latest" ]]
+        then
+          ls '${{github.workspace}}/build'
+        else
+          tree '${{github.workspace}}/build'
         if [[ "${{ matrix.os }}" == "windows-latest" ]]
         then
-          7z a '${{ matrix.artifact_name }}' '${{github.workspace}}/build/test/main/TestMain.exe'
+          7z a '${{ matrix.artifact_name }}' '${{github.workspace}}/build/test/${{ matrix.exe_name }}'
         else
           tar czvf '${{ matrix.artifact_name }}' '${{github.workspace}}/build/test/${{ matrix.exe_name }}'
         fi

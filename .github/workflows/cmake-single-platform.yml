@@ -29,7 +29,7 @@ jobs:
             artifact_name: main_mac_darwin.tgz
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Checkout Submodules
       run: |
         git config --global http.postBuffer 100M
@@ -55,7 +55,7 @@ jobs:
         ls
 
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.artifact_name }}
         path: ${{ matrix.artifact_name }}

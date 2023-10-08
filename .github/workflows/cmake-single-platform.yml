@@ -16,17 +16,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [windows-latest]
         include:
-          - os: ubuntu-latest
-            exe_name: main
-            artifact_name: main_linux_x64.tgz
           - os: windows-latest
             exe_name: main.exe
             artifact_name: main_windows_x64.zip
-          - os: macOS-latest
-            exe_name: main
-            artifact_name: main_mac_darwin.tgz
 
     steps:
     - uses: actions/checkout@v2

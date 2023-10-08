@@ -6,17 +6,24 @@ int main()
 {
     std::cout << "Hello, World!" << std::endl;
 
-    std::uniform_int_distribution<int> dist(0, 1);
+    std::uniform_int_distribution<int> dist(0, 8);
     auto random_device = std::mt19937{std::random_device{}()};
     auto num = dist(random_device);
 
-    if (num == 0)
+    switch (num)
     {
-        std::cout << "Number is 0" << std::endl;
-    }
-    else
-    {
-        std::cout << "Number is other than 0" << std::endl;
+    case 0:
+        std::cout << "0" << std::endl;
+        break;
+    case 1:
+        std::cout << "1" << std::endl;
+        break;
+    case 2:
+        std::cout << "2" << std::endl;
+        break;
+    default:
+        std::cout << "other" << std::endl;
+        break;
     }
 
     return 0;

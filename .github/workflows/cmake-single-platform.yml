@@ -46,7 +46,7 @@ jobs:
       shell: bash
       run: |
         ls '${{github.workspace}}/build'
-        if [[ "${{matrix.os}}" == "windows-latest"]]
+        if [[ "${{matrix.os}}" == "windows-latest" ]]
         then
           7z a ${{matrix.artifact_name}} '${{github.workspace}}/build/Release/${{matrix.exe_name}}'
         else

@@ -48,10 +48,12 @@ jobs:
         if [[ "${{ matrix.os }}" == "macos-latest" ]]
         then
           ls '${{github.workspace}}/build'
+        else if [[ "${{ matrix.os }}" == "windows-latest" ]]
+          ls '${{github.workspace}}/build/test/'
         else
           tree '${{github.workspace}}/build'
         fi
-        
+
         if [[ "${{ matrix.os }}" == "windows-latest" ]]
         then
           7z a '${{ matrix.artifact_name }}' '${{github.workspace}}/build/test/${{ matrix.exe_name }}'

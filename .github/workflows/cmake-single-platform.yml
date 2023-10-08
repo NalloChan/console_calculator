@@ -54,7 +54,7 @@ jobs:
         fi
         ls
       
-    - name: Upload Artifact
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ${{matrix.artifact_name}}
@@ -62,7 +62,7 @@ jobs:
       
     - name: Release
       uses: softprops/action-gh-release@v1
-      if: startswith(github.ref, 'refs/tags/')
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         body_path: CHANGELOG.md
         files: |

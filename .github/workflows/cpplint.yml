@@ -26,14 +26,14 @@ jobs:
           modified_files = sorted(in_file.read().splitlines())
         print("{} files were modified.".format(len(modified_files)))
 
-        cpp_exts = tuple(".c .c++ .cc .cpp .cu .cuh .cxx　.cppm .ixx .h .h++ .hh .hpp .hxx".split())
+        cpp_exts = tuple(".c .c++ .cc .cpp .cu .cuh .cxx .cppm .ixx .h .h++ .hh .hpp .hxx".split())
         cpp_files = [file for file in modified_files if file.lower().endswith(cpp_exts)]
         print(f"{len(cpp_files)} C++ files were modified.")
         if not cpp_files:
           sys.exit(0)
 
         print("cpplint:")
-        subprocess.run(["cpplint", "--filter=-legal/copyright,-build/namespaces_headers,-runtime/indentation_namespace,-whitespace/braces,-whitespace/newline"] + cpp_files, check=True, text=True)
+        subprocess.run(["cpplint", "--filter=-legal/copyright", "--include=src"] + cpp_files, check=True, text=True)
 
         print("g++:")
         subprocess.run(["g++"] + cpp_files, check=True, text=True)

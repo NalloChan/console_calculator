@@ -1,9 +1,7 @@
 
-#include "calculator.hpp"
-
+#include <calculator/calculator.hpp>
+#include <calculator/calculator_message.hpp>
 #include <iostream>
-
-#include "../calculator/calculator_message.hpp"
 
 namespace calculator {
 Calculator::Calculator(std::shared_ptr<console_io::ConsoleIO> console_io)

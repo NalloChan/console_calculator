@@ -1,8 +1,7 @@
 
+#include <calculator/calculator.hpp>
+#include <console_io/console_io.hpp>
 #include <string_view>
-
-#include "calculator/calculator.hpp"
-#include "console_io/console_io.hpp"
 
 int main() {
   auto console_io = std::make_shared<console_io::ConsoleIO>();

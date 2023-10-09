@@ -1,9 +1,8 @@
 
 #pragma once
 
+#include <console_io/console_io.hpp>
 #include <memory>
-
-#include "../console_io/console_io.hpp"
 
 namespace calculator {
 

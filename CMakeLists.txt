@@ -9,6 +9,8 @@ include (${CMAKE_SOURCE_DIR}/cmakes/compile_option.cmake)
 
 add_executable(${project_name} src/main.cpp)
 
+include_directories(${CMAKE_SOURCE_DIR}/src)
+
 add_subdirectory(./src/calculator)
 target_link_libraries(${project_name} Calculator)
 add_subdirectory(./src/console_io)

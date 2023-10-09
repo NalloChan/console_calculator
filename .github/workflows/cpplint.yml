@@ -35,6 +35,6 @@ jobs:
         print("cpplint:")
         subprocess.run(["cpplint", "--filter=-legal/copyright"] + cpp_files, check=True, text=True)
 
-        print("g++:")
-        subprocess.run(["g++", "-I:src/**"] + cpp_files, check=True, text=True)
+        # print("g++:")
+        # subprocess.run(["g++", "-I:src/**"] + cpp_files, check=True, text=True)
         

@@ -26,7 +26,7 @@ jobs:
           modified_files = sorted(in_file.read().splitlines())
         print("{} files were modified.".format(len(modified_files)))
 
-        cpp_exts = tuple(".c .c++ .cc .cpp .cu .cuh .cxx .h .h++ .hh .hpp .hxx".split())
+        cpp_exts = tuple(".c .c++ .cc .cpp .cu .cuh .cxx　.cppm .ixx .h .h++ .hh .hpp .hxx".split())
         cpp_files = [file for file in modified_files if file.lower().endswith(cpp_exts)]
         print(f"{len(cpp_files)} C++ files were modified.")
         if not cpp_files:

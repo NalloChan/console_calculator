@@ -20,4 +20,6 @@ auto ConsoleIO::input() -> std::string {
   std::getline(std::cin, input);
   return input;
 }
+
+auto ConsoleIO::new_line() -> void { std::cout << std::endl; }
 }  // namespace console_io

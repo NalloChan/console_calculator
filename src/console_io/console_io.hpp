@@ -12,5 +12,6 @@ class ConsoleIO {
 
   auto output(std::string_view message) -> void;
   auto input() -> std::string;
+  auto new_line() -> void;
 };
 }  // namespace console_io

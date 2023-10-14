@@ -11,11 +11,21 @@ namespace calculator {
 class Calculator {
  private:
   std::shared_ptr<console_io::ConsoleIO> console_io{};
+  std::string input_string{};
+  std::string calculation_result{};
 
  public:
   explicit Calculator(std::shared_ptr<console_io::ConsoleIO> console_io);
   ~Calculator();
 
   auto run() -> void;
+
+  auto announce() -> void;
+  auto input() -> void;
+  auto output() -> void;
+
+  /// @brief 入力された文字列を処理する
+  /// @return true: 継続, false: 終了
+  auto process() -> bool;
 };
 }  // namespace calculator

@@ -2,6 +2,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include "console_io/console_io.hpp"
 

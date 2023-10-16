@@ -35,18 +35,20 @@ jobs:
       run: |
         git config --global http.postBuffer 100M
         git submodule update --init --recursive --recommend-shallow --depth 1
+    - name: Update GCC
+      run: |
+        if [[ "${{ matrix.os }}" != "windows-latest" ]]
+        then
+          sudo apt update
+          sudo apt install gcc-13 g++-13
+        fi
     - name: Configure CMake
-      run: |
-        mkdir build
-        cd build
-        cmake .. -DCMAKE_C_COMPILER=$COMPILER -DCMAKE_CXX_COMPILER=$COMPILER_CXX
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-      env: 
-        COMPILER: ${{ matrix.compiler }}
-        COMPILER_CXX: ${{ matrix.compiler }}
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      env:
+        CC: gcc-13
+        CXX: g++-13
     - name: Build
-      run: |
-        cmake --build . --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest -C ${{env.BUILD_TYPE}}

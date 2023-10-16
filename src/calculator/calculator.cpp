@@ -5,7 +5,6 @@
 #include <iostream>
 #include <utility>
 
-#include "calculator/calculator.hpp"
 #include "calculator/calculator_define.hpp"
 #include "calculator/calculator_message.hpp"
 

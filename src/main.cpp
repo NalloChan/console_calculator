@@ -5,9 +5,11 @@
 #include "console_io/console_io.hpp"
 
 int main() {
-  auto console_io = std::make_shared<console_io::ConsoleIO>();
+  auto console = console_io::ConsoleIO();
+  auto arithmetic = calculator::Arithmetic<double>();
 
-  auto calculator = calculator::Calculator(console_io);
+  auto calculator =
+      calculator::Calculator(std::move(console), std::move(arithmetic));
   calculator.run();
 
   return 0;

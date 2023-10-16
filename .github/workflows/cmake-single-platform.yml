@@ -35,6 +35,11 @@ jobs:
       run: |
         git config --global http.postBuffer 100M
         git submodule update --init --recursive --recommend-shallow --depth 1
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: latest
+        platform: x64
     - name: Configure CMake
       run: |
         mkdir build

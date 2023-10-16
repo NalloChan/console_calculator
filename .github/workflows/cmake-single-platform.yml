@@ -39,7 +39,6 @@ jobs:
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
     - name: Build
       run: |
-        mkdir build
         cd build
         cmake .. -DCMAKE_C_COMPILER=$COMPILER -DCMAKE_CXX_COMPILER=$COMPILER_CXX
         cmake --build . --config ${{env.BUILD_TYPE}}

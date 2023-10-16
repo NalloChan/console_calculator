@@ -21,5 +21,5 @@ auto ConsoleIO::input() -> std::string {
   return input;
 }
 
-auto ConsoleIO::new_line() -> void { std::cout << std::endl; }
+auto ConsoleIO::insert_new_line() -> void { std::cout << std::endl; }
 }  // namespace console_io
